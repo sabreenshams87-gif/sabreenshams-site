@@ -992,7 +992,8 @@ $('burger').onclick = () => { const o = mnav.classList.toggle('open'); $('burger
 mnav.addEventListener('click', e => { if (e.target.closest('a')) { mnav.classList.remove('open'); $('burger').setAttribute('aria-expanded', false); } });
 const PAGES = {'skills-library':1, 'privacy':1, 'links':1};
 function route(){
-  const h = decodeURIComponent(location.hash.slice(1));
+  const q = new URLSearchParams(location.search).get('p');
+  const h = decodeURIComponent(location.hash.slice(1)) || (PAGES[q] ? q : '');
   document.body.dataset.view = PAGES[h] ? h : 'home';
   if (PAGES[h] || h === 'top' || !h) { scrollTo(0, 0); return; }
   const el = $(h); if (el) requestAnimationFrame(() => el.scrollIntoView());
