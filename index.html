@@ -507,6 +507,30 @@ body[data-view="skills-library"] #top,body[data-view="privacy"] #top{display:non
   .fg > div:first-child{grid-column:1/-1}
   .foot{padding-block:28px 84px}
 }
+
+/* LINKS-PAGE */
+body[data-view="links"] #pgLinks{display:block}
+body[data-view="links"] #top,body[data-view="links"] .nav,body[data-view="links"] .mnav,body[data-view="links"] .stick,body[data-view="links"] .foot{display:none!important}
+#pgLinks{padding-top:calc(46px + env(safe-area-inset-top, 0px));padding-bottom:50px;min-height:100vh}
+#pgLinks .wrap{max-width:520px}
+.lk{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px}
+.lk .ph{width:118px;height:118px;border-radius:50%;object-fit:cover;object-position:50% 14%;border:4px solid var(--gold);box-shadow:0 0 0 7px rgba(246,195,90,.18),0 20px 50px rgba(0,0,0,.4)}
+.lk h1{font-size:30px;font-weight:900;margin:16px 0 0;color:var(--cream)}
+.lk .tl{font-weight:700;color:var(--mist);font-size:15px;margin:2px 0 0}
+.lk .langs{margin-top:14px}
+.lkl{display:flex;flex-direction:column;gap:12px;margin-top:26px;width:100%}
+.lkb{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--cream);font-weight:800;font-size:16.5px;padding:16px 18px;border-radius:22px;background:linear-gradient(160deg,rgba(255,255,255,.1),rgba(255,255,255,.03));border:1px solid var(--line);backdrop-filter:blur(10px);transition:transform .2s,border-color .2s,background .2s;text-align:start}
+.lkb:hover{transform:translateY(-3px);border-color:rgba(246,195,90,.6)}
+.lkb .ic{flex:0 0 40px;height:40px;border-radius:13px;background:rgba(232,169,46,.16);border:1px solid rgba(246,195,90,.4);display:grid;place-items:center}
+.lkb .t{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.35}
+.lkb small{font-weight:600;font-size:12.5px;color:var(--mist)}
+.lkb.main{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--night);border-color:transparent;box-shadow:0 14px 40px rgba(232,169,46,.35)}
+.lkb.main small{color:rgba(5,13,34,.7)}
+.lkb.main .ic{background:rgba(5,13,34,.12);border-color:rgba(5,13,34,.2)}
+.lkb.soon{opacity:.6;pointer-events:none}
+.lkb .arr2{flex:0 0 auto;opacity:.7}
+html[dir="rtl"] .lkb .arr2{transform:scaleX(-1)}
+.lkf{margin-top:26px;color:var(--mist);font-size:13px}
 </style>
 
 <div class="prog" id="prog"></div>
@@ -819,6 +843,17 @@ body[data-view="skills-library"] #top,body[data-view="privacy"] #top{display:non
   <div class="btns"><a class="btn btn-gold" href="#top"><span class="ar">العودة للرئيسية</span><span class="en">Back to Home</span></a></div>
 </div></div>
 
+
+<div class="pageview" id="pgLinks"><div class="wrap">
+  <div class="lk">
+    <img class="ph" id="lkImg" alt="Sabreen Shams">
+    <h1><span class="ar">صابرين شمس</span><span class="en">Sabreen Shams</span></h1>
+    <p class="tl"><span class="ar">رائدة أعمال · مستشارة تسويق رقمي</span><span class="en">Entrepreneur · Marketing Strategist</span></p>
+    <div class="lang langs" role="group" aria-label="Language"><button type="button" data-l="ar" aria-pressed="true">ع</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+    <div class="lkl"><a class="lkb main" href="#top"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span class="t"><span class="ar">موقعي الشخصي</span><span class="en">My Website</span><small><span class="ar">كل شي بمكان واحد</span><span class="en">Everything in one place</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb " href="#contact"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 8l9 6 9-6"/></svg></span><span class="t"><span class="ar">تواصل معي</span><span class="en">Contact me</span><small><span class="ar">ناقش مشروعك أو فكرتك</span><span class="en">Discuss your project or idea</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb " href="#insights"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1.1 2V16h5v-.2c.1-.8.5-1.5 1.1-2A6 6 0 0 0 12 3z"/></svg></span><span class="t"><span class="ar">أفكاري</span><span class="en">My Insights</span><small><span class="ar">تجارب وأفكار من الطريق</span><span class="en">Experience-based ideas</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb " href="#skills-library"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5"/></svg></span><span class="t"><span class="ar">مكتبة التدريبات</span><span class="en">Trainings Library</span><small><span class="ar">قريباً: الذكاء الاصطناعي بالتسويق</span><span class="en">Coming soon: AI for marketing</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb " href="https://athena.ps/" target="_blank" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></span><span class="t"><span class="ar">أثينا</span><span class="en">Athena</span><small><span class="ar">التسويق والفعاليات</span><span class="en">Marketing & events</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb " href="https://tshbik.com/ar" target="_blank" rel="noopener" data-ar="https://tshbik.com/ar" data-en="https://tshbik.com/en"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="3"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg></span><span class="t"><span class="ar">تشبيك</span><span class="en">Tshbik</span><small><span class="ar">منصة تقنية قيد التطوير</span><span class="en">Workforce platform in development</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb " href="https://www.linkedin.com/in/sabreen-shams-a59567430/" target="_blank" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9v11M6 5.5v.01M11 20v-6a3 3 0 0 1 6 0v6M11 12v8"/></svg></span><span class="t"><span class="ar">لينكدإن</span><span class="en">LinkedIn</span></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb " href="https://www.instagram.com/sabreenshamsai/" target="_blank" rel="noopener"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5v.01"/></svg></span><span class="t"><span class="ar">إنستغرام</span><span class="en">Instagram</span><small><span class="ar">@sabreenshamsai</span><span class="en">@sabreenshamsai</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a class="lkb soon" href="#links"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F6C35A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></span><span class="t"><span class="ar">يوتيوب</span><span class="en">YouTube</span><small><span class="ar">قريباً</span><span class="en">Coming soon</span></small></span><svg class="arr2" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a></div>
+    <p class="lkf">© Sabreen Shams</p>
+  </div>
+</div></div>
 <footer class="foot"><div class="wrap">
   <div class="fg">
     <div><div class="fname"><span class="ar">صابرين شمس</span><span class="en">Sabreen Shams</span></div>
@@ -955,7 +990,7 @@ document.querySelector('.prev').addEventListener('click', e => { const b = e.tar
 const mnav = $('mnav');
 $('burger').onclick = () => { const o = mnav.classList.toggle('open'); $('burger').setAttribute('aria-expanded', o); };
 mnav.addEventListener('click', e => { if (e.target.closest('a')) { mnav.classList.remove('open'); $('burger').setAttribute('aria-expanded', false); } });
-const PAGES = {'skills-library':1, 'privacy':1};
+const PAGES = {'skills-library':1, 'privacy':1, 'links':1};
 function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   document.body.dataset.view = PAGES[h] ? h : 'home';
@@ -1009,6 +1044,9 @@ document.querySelectorAll('.sv').forEach(sv => {
   const sync = () => { const l = document.documentElement.lang === 'en' ? 'en' : 'ar'; document.querySelectorAll('a[data-ar][data-en]').forEach(a => a.href = a.dataset[l]); };
   const _sl = setLang; setLang = function (l) { _sl(l); sync(); }; sync();
 })();
+
+/* LINKS-PAGE script */
+(() => { const src = document.querySelector('.arch5 img'); const t = document.getElementById('lkImg'); if (src && t) t.src = src.src; document.querySelectorAll('#pgLinks .lang button').forEach(b => b.onclick = () => setLang(b.dataset.l)); })();
 </script>
 
 </html>
