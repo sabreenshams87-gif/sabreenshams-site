@@ -387,6 +387,79 @@ body[data-view="skills-library"] #top,body[data-view="privacy"] #top{display:non
 .nf input{flex:1 1 200px;min-width:0;font-family:inherit;font-weight:600;font-size:15px;color:var(--cream);background:rgba(2,8,24,.5);border:1px solid var(--line);border-radius:999px;padding:13px 20px}
 .nf input::placeholder{color:rgba(201,211,232,.55)}
 .nmsg{font-size:13px;color:var(--gold-hi);font-weight:700;margin-top:10px;max-width:480px}
+
+/* MOBILE-LAYOUT: shorter, swipeable, photo + name first */
+.vmore,.stick{display:none}
+@media (max-width:700px){
+  body{font-size:16px}
+  section.band,.band{padding-block:56px}
+  .head{margin-bottom:26px;gap:14px}
+  .head h2,.h2s{font-size:clamp(28px,8.4vw,36px)}
+  .head p{font-size:16px;line-height:1.8}
+  .head p + p{display:none}
+  .marquee,.c1,.c2,.glow,.nums{display:none}
+  /* hero: photo, name, who I am */
+  .hero{padding-top:calc(86px + env(safe-area-inset-top, 0px))}
+  .hero-grid{display:flex;flex-direction:column;gap:0}
+  .figure{order:-1;width:min(270px,70%);margin-inline:auto}
+  .copy{padding-bottom:26px;text-align:start}
+  .hero .kicker{font-size:11px;letter-spacing:.12em;margin-top:6px}
+  .hero h1{font-size:clamp(38px,11.5vw,50px);margin:10px 0 10px}
+  .headline{font-size:19px;margin:0 0 12px}
+  .hero .desc p:nth-child(n+2){display:none}
+  .hero .desc p{font-size:15.5px;margin:0 0 6px}
+  .hero .btns{margin-top:16px;gap:10px}
+  .hero .btn{padding:12px 20px;font-size:15px}
+  .hl4{grid-template-columns:1fr 1fr;gap:8px 14px;margin-top:22px}
+  .hl4 div{font-size:12.5px;line-height:1.4;align-items:flex-start}
+  /* about */
+  .arch5{display:none}
+  .about5{gap:0}
+  .prose > p:nth-of-type(n+2){display:none}
+  .prose.open > p,.prose.open .more p{display:block}
+  .bigq{margin:22px 0 20px;font-size:26px;max-width:none}
+  /* journey */
+  .jpanel{min-height:0;padding:22px}
+  .sky{aspect-ratio:4/3}
+  .sky .me{height:92%}
+  /* ventures */
+  .vc{padding:24px;gap:12px}
+  .vc p{font-size:15.5px}
+  .vc:not(.open) p:nth-of-type(n+2){display:none}
+  .vc:not(.open) .vmeta > div:nth-child(2){display:none}
+  .vmore{display:inline-flex;align-self:flex-start;font-family:inherit;font-weight:800;font-size:13.5px;color:var(--gold-hi);background:transparent;border:1px solid rgba(246,195,90,.45);border-radius:999px;padding:6px 16px;cursor:pointer}
+  .vmeta b{flex:0 0 78px}
+  /* swipeable rows */
+  .sgrid,.posts,.cats{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:14px;margin-inline:calc(-1 * max(20px, env(safe-area-inset-left, 0px)));padding-inline:max(20px, env(safe-area-inset-left, 0px));scrollbar-width:none}
+  .sgrid::-webkit-scrollbar,.posts::-webkit-scrollbar,.cats::-webkit-scrollbar{display:none}
+  .sv,.sv:nth-child(n+4){flex:0 0 82%;scroll-snap-align:center;grid-column:auto}
+  .post{flex:0 0 78%;scroll-snap-align:center}
+  .cat{flex:0 0 72%;scroll-snap-align:center}
+  .post .im{aspect-ratio:4/3}
+  .pb{padding:18px 20px 22px}
+  .goals{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:6px}
+  .goals::-webkit-scrollbar{display:none}
+  .gchip{flex:0 0 auto;white-space:nowrap}
+  .why{display:none}
+  .center{margin-top:26px}
+  /* skills library + collaborate */
+  .sk5{gap:18px}
+  .sk-p + .sk-p{display:none}
+  .closing{margin-top:12px}
+  .cl{gap:24px}
+  .ctypes{grid-template-columns:1fr 1fr;gap:10px}
+  .ctypes > div{padding:14px 14px;font-size:14px}
+  .collab .sk-p + .sk-p{display:none}
+  /* contact + footer */
+  .fm,.ci{padding:22px;border-radius:26px}
+  .foot{padding-block:34px 90px}
+  .fg{gap:18px}.foot .fg a{display:inline-block;margin-inline-end:16px;padding:3px 0;font-size:14px}.foot h4{margin-bottom:6px}.cp{margin-top:22px}
+  .rise{height:110px;margin-top:20px}
+  .outro{padding-block:70px 0}
+  .outro p{font-size:16px}
+  .stick{display:flex;position:fixed;z-index:60;left:max(14px, env(safe-area-inset-left, 0px));right:max(14px, env(safe-area-inset-right, 0px));bottom:calc(12px + env(safe-area-inset-bottom, 0px));justify-content:center;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:15.5px;color:var(--night);background:linear-gradient(135deg,var(--gold-hi),var(--gold));border-radius:999px;padding:14px 20px;box-shadow:0 14px 40px rgba(0,0,0,.45);transition:transform .3s,opacity .3s}
+  .stick.off{transform:translateY(140%);opacity:0;pointer-events:none}
+}
 </style>
 
 <div class="prog" id="prog"></div>
@@ -624,7 +697,7 @@ body[data-view="skills-library"] #top,body[data-view="privacy"] #top{display:non
   </div></div>
   <div class="ct">
     <form class="fm rv" id="cform" novalidate>
-      <input type="checkbox" name="botcheck" id="bc" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0">
+      <input type="checkbox" name="botcheck" id="bc" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none">
       <div class="fr"><label for="c1"><span class="ar">الاسم الكامل</span><span class="en">Full Name</span> *</label><input id="c1" name="name" required autocomplete="name"><div class="err" data-e="name"></div></div>
       <div class="fr"><label for="c2"><span class="ar">البريد الإلكتروني</span><span class="en">Email Address</span> *</label><input id="c2" name="email" type="email" required autocomplete="email" dir="ltr" placeholder="example@email.com"><div class="err" data-e="email"></div></div>
       <div class="fr"><label for="c3"><span class="ar">اسم الشركة أو المؤسسة</span><span class="en">Company / Organization</span></label><input id="c3" name="company" autocomplete="organization"></div>
@@ -714,6 +787,7 @@ body[data-view="skills-library"] #top,body[data-view="privacy"] #top{display:non
 
 
 
+<a class="stick" id="stick" href="#collaborate"><span class="ar">لنتعاون معاً</span><span class="en">Let's Collaborate</span></a>
 <script>
 const L = () => document.documentElement.lang === 'en' ? 1 : 0;
 const $ = id => document.getElementById(id);
@@ -857,6 +931,22 @@ document.querySelectorAll('.lang button').forEach(b => b.onclick = () => setLang
 buildSky(); paint(STOPS[0]);
 let saved = 'ar'; try { saved = localStorage.getItem('ss-lang') || 'ar'; } catch {}
 setLang(saved); route();
+
+/* MOBILE-LAYOUT scripts */
+document.querySelectorAll('.vc').forEach(vc => {
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'vmore';
+  const fresh = () => { b.innerHTML = vc.classList.contains('open') ? '<span class="ar">أقل</span><span class="en">Show less</span>' : '<span class="ar">المزيد عن المشروع</span><span class="en">More about this venture</span>'; };
+  fresh(); b.onclick = () => { vc.classList.toggle('open'); fresh(); };
+  const first = vc.querySelector('p'); first.after(b);
+});
+(() => {
+  const st = document.getElementById('stick'), hero = document.getElementById('hero'), targets = [document.getElementById('collaborate'), document.getElementById('contact'), document.querySelector('.outro'), document.getElementById('pgPrivacy'), document.getElementById('pgSkills')].filter(Boolean);
+  const seen = new Set(); let heroSeen = true;
+  const upd = () => st.classList.toggle('off', heroSeen || seen.size > 0);
+  new IntersectionObserver(es => { heroSeen = es[0].isIntersecting && es[0].intersectionRatio > .35; upd(); }, {threshold:[0, .35, .7]}).observe(hero);
+  const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)); upd(); });
+  targets.forEach(t => io.observe(t));
+})();
 </script>
 
 </html>
