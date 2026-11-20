@@ -628,7 +628,7 @@ body[data-view="skills-library"] #top,body[data-view="privacy"] #top{display:non
         <div><b><span class="ar">مجالات العمل</span><span class="en">Focus Areas</span></b><span class="tags"><span>Workforce Technology</span><span>Startups</span><span>Staffing</span><span>Digital Platforms</span></span></div>
         <div><b><span class="ar">الحالة</span><span class="en">Status</span></b><span class="status"><span class="ar">قيد التطوير واختبار السوق</span><span class="en">In Development &amp; Market Validation</span></span></div>
       </div>
-      <a class="btn btn-gold" href="https://www.instagram.com/tshbik.ps/" target="_blank" rel="noopener"><span class="ar">اكتشف تشبيك</span><span class="en">Discover Tshbik</span><span class="arr">→</span></a>
+      <a class="btn btn-gold" href="https://tshbik.com/ar" data-ar="https://tshbik.com/ar" data-en="https://tshbik.com/en" target="_blank" rel="noopener"><span class="ar">اكتشف تشبيك</span><span class="en">Discover Tshbik</span><span class="arr">→</span></a>
     </article>
   </div>
 </div></section>
@@ -1003,6 +1003,12 @@ document.querySelectorAll('.sv').forEach(sv => {
   fresh(); b.onclick = () => { sv.classList.toggle('open'); fresh(); };
   const lastP = [...sv.querySelectorAll(':scope > p')].pop(); lastP.after(b);
 });
+
+/* language-aware external links */
+(() => {
+  const sync = () => { const l = document.documentElement.lang === 'en' ? 'en' : 'ar'; document.querySelectorAll('a[data-ar][data-en]').forEach(a => a.href = a.dataset[l]); };
+  const _sl = setLang; setLang = function (l) { _sl(l); sync(); }; sync();
+})();
 </script>
 
 </html>
