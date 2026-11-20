@@ -460,6 +460,53 @@ body[data-view="skills-library"] #top,body[data-view="privacy"] #top{display:non
   .stick{display:flex;position:fixed;z-index:60;left:max(14px, env(safe-area-inset-left, 0px));right:max(14px, env(safe-area-inset-right, 0px));bottom:calc(12px + env(safe-area-inset-bottom, 0px));justify-content:center;align-items:center;gap:10px;text-decoration:none;font-weight:900;font-size:15.5px;color:var(--night);background:linear-gradient(135deg,var(--gold-hi),var(--gold));border-radius:999px;padding:14px 20px;box-shadow:0 14px 40px rgba(0,0,0,.45);transition:transform .3s,opacity .3s}
   .stick.off{transform:translateY(140%);opacity:0;pointer-events:none}
 }
+
+/* MOBILE-LAYOUT-2: tighter journey, expertise, library, insights, contact */
+.prev{display:none}
+.svmore{display:none}
+@media (max-width:700px){
+  /* journey: small sky first, then the text */
+  .jr{display:flex;flex-direction:column;align-items:stretch;gap:16px}
+  .jr > div{width:100%}
+  .jr .sky{order:-1;aspect-ratio:2/1;border-radius:26px}
+  .jr .sky .me{height:100%}
+  .jr .sunball{width:19%}
+  .jr .drag{bottom:8px;font-size:10.5px;padding:4px 12px}
+  .jpanel{padding:20px}
+  .jpanel h3{font-size:22px;margin:8px 0 6px}
+  .jpanel p{font-size:15px;line-height:1.8}
+  .jtabs{margin-top:12px}
+  .jtabs button{padding:8px 4px}
+  /* expertise: short cards with a "more" button */
+  .sv{padding:22px;gap:10px}
+  .sv h3{font-size:20px}
+  .sv:not(.open) > p{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .sv .note{font-size:14px}
+  .svmore{display:inline-flex;align-self:flex-start;font-family:inherit;font-weight:800;font-size:13.5px;color:var(--gold-hi);background:transparent;border:1px solid rgba(246,195,90,.45);border-radius:999px;padding:5px 16px;cursor:pointer}
+  /* library: categories live on the library page */
+  #skills .cats{display:none}
+  #skills .closing{margin-top:6px;text-align:start}
+  /* insights: no empty category filters */
+  #cats,#catWhy{display:none}
+  .posts{margin-top:4px}
+  /* collaborate + contact read as one block */
+  .collab{padding-bottom:36px}
+  .collab .sk-p{font-size:16px}
+  .ctypes{display:flex;flex-wrap:wrap;gap:8px}
+  .ctypes > div{flex-direction:row;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;font-size:13.5px}
+  .ctypes b{font-size:11px;letter-spacing:.08em}
+  #contact{padding-top:34px}
+  #contact .head{display:none}
+  .ct{gap:16px}
+  .fm{gap:12px}
+  .ci{padding:18px 20px;gap:8px}
+  .ci h3{font-size:20px}
+  .cir{padding-top:8px}
+  /* footer in two compact blocks */
+  .fg{grid-template-columns:1fr 1fr;gap:14px 12px}
+  .fg > div:first-child{grid-column:1/-1}
+  .foot{padding-block:28px 84px}
+}
 </style>
 
 <div class="prog" id="prog"></div>
@@ -947,6 +994,15 @@ document.querySelectorAll('.vc').forEach(vc => {
   const io = new IntersectionObserver(es => { es.forEach(e => e.isIntersecting ? seen.add(e.target) : seen.delete(e.target)); upd(); });
   targets.forEach(t => io.observe(t));
 })();
+
+/* MOBILE-LAYOUT-2 scripts */
+document.querySelectorAll('.sv').forEach(sv => {
+  const first = sv.querySelector(':scope > p'); if (!first) return;
+  const b = document.createElement('button'); b.type = 'button'; b.className = 'svmore';
+  const fresh = () => { b.innerHTML = sv.classList.contains('open') ? '<span class="ar">أقل</span><span class="en">Show less</span>' : '<span class="ar">اقرأ المزيد</span><span class="en">Read more</span>'; };
+  fresh(); b.onclick = () => { sv.classList.toggle('open'); fresh(); };
+  const lastP = [...sv.querySelectorAll(':scope > p')].pop(); lastP.after(b);
+});
 </script>
 
 </html>
